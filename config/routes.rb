@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root 'snippets#index'
+  resources :snippets
+  get 'private/:access_token' => 'snippets#private_snippet'
+  
+  post '/api/snippets' => 'api#create',:defaults => { :format => :json }
+  get '/api/snippets/:id' => 'api#show',:defaults => { :format => :json }
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

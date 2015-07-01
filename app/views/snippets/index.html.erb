@@ -1,0 +1,17 @@
+
+<div>
+Total Snippets : <%= pluralize(Snippet.count, "snippet") %>
+</div>
+<br />
+
+<%= link_to "Create Snippet", new_snippet_path %>
+<br />
+<br />
+<table style="width:50%;">
+  <% @snippets.each do |snippet| %>
+    <tr style="height:50px;">
+      <td style="border:1px solid black;"><%= link_to truncate(snippet.text, length:20) , snippet_path(snippet) %></td>
+    </tr>
+  <% end %>
+</table>
+
